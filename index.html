@@ -15,7 +15,10 @@
       align-items: center;
       height: 100vh;
       width: 100vw;
-      font-size: 10vw;
+      font-size: 15vw; /* 更大字体，适合竖屏 */
+    }
+    #clock {
+      writing-mode: horizontal-tb; /* 保持横向文字排列 */
     }
   </style>
 </head>
@@ -29,14 +32,14 @@
 
     function updateClock() {
       var d = new Date();
-      var h = pad(d.getHours());
+      var h = pad(d.getHours() + 8);
       var m = pad(d.getMinutes());
       var s = pad(d.getSeconds());
       document.getElementById("clock").innerHTML = h + ':' + m + ':' + s;
     }
 
-    updateClock(); // 初始显示
-    setInterval(updateClock, 1000); // 每秒更新
+    updateClock();
+    setInterval(updateClock, 1000);
   </script>
 </body>
 </html>
