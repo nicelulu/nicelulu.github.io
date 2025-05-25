@@ -2,45 +2,49 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Kindle Clock (Fixed Rotation)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Kindle Clock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
-      background-color: black;
+      background: black;
       color: white;
       font-family: monospace;
-      font-size: 15vw;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      width: 100vw;
       overflow: hidden;
     }
-    
-    /* 强制旋转 90 度（适用于 Kindle 横放） */
     #clock {
+      font-size: 15vw;
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
       transform: rotate(90deg);
-      /* 可选：调整旋转后的位置 */
-      transform-origin: center;
+      /* 备用方案 */
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
     }
   </style>
 </head>
 <body>
-  <div id="clock">--:--:--</div>
+  <div id="clock">Loading...</div>
 
-  <script>
+  <script type="text/javascript">
     function pad(n) {
       return n < 10 ? '0' + n : n;
     }
 
     function updateClock() {
-      const d = new Date();
-      d.setHours(d.getHours() + 8); // 修正时区偏差（Kindle 通常不准）
-      const h = pad(d.getHours());
-      const m = pad(d.getMinutes());
-      const s = pad(d.getSeconds());
-      document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+      var d = new Date();
+      d.setHours(d.getHours() + 8); // 修正为北京时间（如有需要）
+      var h = pad(d.getHours());
+      var m = pad(d.getMinutes());
+      var s = pad(d.getSeconds());
+      document.getElementById("clock").innerHTML = h + ':' + m + ':' + s;
     }
 
     updateClock();
