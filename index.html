@@ -1,44 +1,42 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kindle Clock</title>
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        #clock {
-            font-size: 5em;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div id="clock"></div>
-
-    <script>
-        function updateClock() {
-            const now = new Date();
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const seconds = now.getSeconds().toString().padStart(2, '0');
-            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
-        }
-
-        // 初始加载
-        updateClock();
-        // 每秒更新一次
-        setInterval(updateClock, 1000);
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>Kindle Illustration Clock 插画时钟</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/es5-shim/4.6.7/es5-shim.min.js"></script>
+    <script type="text/javascript">
+      // 禁止缩放（ios）
+      document.addEventListener('gesturestart', function (event) {
+        event.preventDefault();
+      });
+      // // 百度统计
+      // var _hmt = _hmt || [];
+      // (function() {
+      //   var hm = document.createElement("script");
+      //   hm.src = "https://hm.baidu.com/hm.js?d589367b091276aee579e3193842733c";
+      //   var s = document.getElementsByTagName("script")[0]; 
+      //   s.parentNode.insertBefore(hm, s);
+      // })();
     </script>
-</body>
+      
+    <style>
+      /* :root{
+        --footer-height: 30px;
+      } */
+      body {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body oncontextmenu="return false" ondragstart="return false" onselect="return false" οncοpy="return false">
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
 </html>
