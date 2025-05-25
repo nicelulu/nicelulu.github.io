@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Kindle Clock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      font-size: 10vw;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock">Loading...</div>
+
+  <script type="text/javascript">
+    function pad(n) {
+      return n < 10 ? '0' + n : n;
+    }
+
+    function updateClock() {
+      var d = new Date();
+      var h = pad(d.getHours());
+      var m = pad(d.getMinutes());
+      var s = pad(d.getSeconds());
+      document.getElementById("clock").innerHTML = h + ':' + m + ':' + s;
+    }
+
+    updateClock(); // 初始显示
+    setInterval(updateClock, 1000); // 每秒更新
+  </script>
+</body>
+</html>
+
