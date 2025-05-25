@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Kindle Clock</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kindle Clock (Fixed Rotation)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <style>
     body {
       margin: 0;
@@ -15,6 +15,14 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      overflow: hidden;
+    }
+    
+    /* 强制旋转 90 度（适用于 Kindle 横放） */
+    #clock {
+      transform: rotate(90deg);
+      /* 可选：调整旋转后的位置 */
+      transform-origin: center;
     }
   </style>
 </head>
@@ -40,4 +48,3 @@
   </script>
 </body>
 </html>
-
