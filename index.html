@@ -15,18 +15,10 @@
       align-items: center;
       height: 100vh;
       width: 100vw;
-      overflow: hidden;
     }
     #clock {
       font-size: 15vw;
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      transform: rotate(90deg);
-      /* 备用方案 */
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
+      transform: rotate(90deg); /* 旋转 90 度 */
     }
   </style>
 </head>
@@ -44,7 +36,7 @@
       var h = pad(d.getHours());
       var m = pad(d.getMinutes());
       var s = pad(d.getSeconds());
-      document.getElementById("clock").innerHTML = h + ':' + m + ':' + s;
+      document.getElementById("clock").innerHTML = h + ':' + m;
     }
 
     updateClock();
