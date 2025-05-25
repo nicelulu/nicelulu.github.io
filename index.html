@@ -2,31 +2,24 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Kindle Vertical Clock</title>
+  <title>Kindle Clock</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
-      background: black;
+      background-color: black;
       color: white;
       font-family: monospace;
+      font-size: 15vw;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      width: 100vw;
-    }
-
-    #clock {
-      font-size: 10vw;
-      writing-mode: vertical-rl;            /* 从右到左垂直排列 */
-      text-orientation: sideways;           /* 让字符保持横向显示 */
-      white-space: nowrap;                  /* 不换行 */
     }
   </style>
 </head>
 <body>
-  <div id="clock">Loading...</div>
+  <div id="clock">--:--:--</div>
 
   <script>
     function pad(n) {
@@ -34,12 +27,12 @@
     }
 
     function updateClock() {
-      var d = new Date();
-      d.setHours(d.getHours() + 8); // 修正时区（如果 Kindle 时区不对）
-      var h = pad(d.getHours());
-      var m = pad(d.getMinutes());
-      var s = pad(d.getSeconds());
-      document.getElementById("clock").textContent = h + ':' + m + ':' + s;
+      const d = new Date();
+      d.setHours(d.getHours() + 8); // 修正时区偏差（Kindle 通常不准）
+      const h = pad(d.getHours());
+      const m = pad(d.getMinutes());
+      const s = pad(d.getSeconds());
+      document.getElementById('clock').textContent = `${h}:${m}:${s}`;
     }
 
     updateClock();
