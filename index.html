@@ -1,42 +1,43 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>Kindle Illustration Clock 插画时钟</title>
-    <script src="https://cdn.bootcdn.net/ajax/libs/es5-shim/4.6.7/es5-shim.min.js"></script>
-    <script type="text/javascript">
-      // 禁止缩放（ios）
-      document.addEventListener('gesturestart', function (event) {
-        event.preventDefault();
-      });
-      // // 百度统计
-      // var _hmt = _hmt || [];
-      // (function() {
-      //   var hm = document.createElement("script");
-      //   hm.src = "https://hm.baidu.com/hm.js?d589367b091276aee579e3193842733c";
-      //   var s = document.getElementsByTagName("script")[0]; 
-      //   s.parentNode.insertBefore(hm, s);
-      // })();
-    </script>
-      
-    <style>
-      /* :root{
-        --footer-height: 30px;
-      } */
-      body {
-        padding: 0;
-        margin: 0;
-      }
-    </style>
-  </head>
-  <body oncontextmenu="return false" ondragstart="return false" onselect="return false" οncοpy="return false">
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Kindle Clock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      font-size: 10vw;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock">Loading...</div>
+
+  <script type="text/javascript">
+    function pad(n) {
+      return n < 10 ? '0' + n : n;
+    }
+
+    function updateClock() {
+      var d = new Date();
+      var h = pad(d.getHours());
+      var m = pad(d.getMinutes());
+      var s = pad(d.getSeconds());
+      document.getElementById("clock").innerHTML = h + ':' + m + ':' + s;
+    }
+
+    updateClock(); // 初始显示
+    setInterval(updateClock, 1000); // 每秒更新
+  </script>
+</body>
 </html>
+
