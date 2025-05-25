@@ -14,29 +14,29 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      width: 100vw;
     }
     #clock {
-      font-size: 35vw;
-      transform: rotate(90deg); /* 旋转 90 度 */
+      font-size: 80px; /* 固定大字号 */
+      line-height: 1.2; /* 行间距 */
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div id="clock">Loading...</div>
+  <pre id="clock">Loading...</pre>
 
-  <script type="text/javascript">
+  <script>
     function pad(n) {
       return n < 10 ? '0' + n : n;
     }
 
     function updateClock() {
       var d = new Date();
-      d.setHours(d.getHours() + 8); // 修正为北京时间（如有需要）
+      d.setHours(d.getHours() + 8); // 修正为北京时间
       var h = pad(d.getHours());
       var m = pad(d.getMinutes());
       var s = pad(d.getSeconds());
-      document.getElementById("clock").innerHTML = h + '<br>' + m 
+      document.getElementById("clock").textContent = h + '\n' + m + '\n' + s;
     }
 
     updateClock();
